@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:social_i/responsive/mobile_screen_layout.dart';
 import 'package:social_i/responsive/responsive_layout_screen.dart';
 import 'package:social_i/responsive/web_screen_layout.dart';
+import 'package:social_i/screens/login_screen.dart';
 import 'package:social_i/utils/colors.dart';
 
 void main() async {
@@ -31,13 +32,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Social_i',
-        theme: ThemeData.dark()
-            .copyWith(scaffoldBackgroundColor: mobileBackgroundColor),
-        home: const ResponsiveLayout(
-          mobileScreenLayout: MobileScreenLayout(),
-          webScreenLayout: WebScreenLayout(),
-        ));
+      debugShowCheckedModeBanner: false,
+      title: 'Social_i',
+      theme: ThemeData.dark()
+          .copyWith(scaffoldBackgroundColor: mobileBackgroundColor),
+      // home: const ResponsiveLayout(
+      //     mobileScreenLayout: MobileScreenLayout(),
+      //     webScreenLayout: WebScreenLayout()),
+      home: const LoginScreen(),
+    );
   }
 }
