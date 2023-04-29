@@ -1,25 +1,30 @@
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:social_i/resources/auth_methods.dart';
 import 'package:social_i/responsive/mobile_screen_layout.dart';
 import 'package:social_i/responsive/responsive_layout_screen.dart';
 import 'package:social_i/responsive/web_screen_layout.dart';
-import 'package:social_i/screens/signup_screen.dart';
+import 'package:social_i/screens/login_screen.dart';
 import 'package:social_i/utils/colors.dart';
-import 'package:social_i/utils/diamensions.dart';
 import 'package:social_i/utils/utils.dart';
 import 'package:social_i/widgets/text_field_input.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class SignupScreen extends StatefulWidget {
+  const SignupScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<SignupScreen> createState() => _SignupScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _SignupScreenState extends State<SignupScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _bioController = TextEditingController();
+  final TextEditingController _usernameController = TextEditingController();
+  Uint8List? _image;
   bool _isLoading = false;
 
   @override
@@ -27,33 +32,51 @@ class _LoginScreenState extends State<LoginScreen> {
     super.dispose();
     _emailController.dispose();
     _passwordController.dispose();
+    _usernameController.dispose();
   }
 
-  void loginUser() async {
+  void signUpUser() async {
+    // set loading to true
     setState(() {
       _isLoading = true;
     });
-    String res = await AuthMethods().loginUser(
-        email: _emailController.text, password: _passwordController.text);
-    if (res == 'success') {
-      Navigator.of(context).pushAndRemoveUntil(
-          MaterialPageRoute(
-            builder: (context) => const ResponsiveLayout(
-              mobileScreenLayout: MobileScreenLayout(),
-              webScreenLayout: WebScreenLayout(),
-            ),
-          ),
-          (route) => false);
 
+    // signup user using our authmethodds
+    String res = await AuthMethods().signUpUser(
+        email: _emailController.text,
+        password: _passwordController.text,
+        username: _usernameController.text,
+        bio: _bioController.text,
+        file: _image!);
+    // if string returned is sucess, user has been created
+    if (res == "success") {
       setState(() {
         _isLoading = false;
       });
+      // navigate to the home screen
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(
+          builder: (context) => const ResponsiveLayout(
+            mobileScreenLayout: MobileScreenLayout(),
+            webScreenLayout: WebScreenLayout(),
+          ),
+        ),
+      );
     } else {
       setState(() {
         _isLoading = false;
       });
+      // show the error
       showSnackBar(context, res);
     }
+  }
+
+  selectImage() async {
+    Uint8List im = await pickImage(ImageSource.gallery);
+    // set state because we need to display the image we selected on the circle avatar
+    setState(() {
+      _image = im;
+    });
   }
 
   @override
@@ -62,10 +85,7 @@ class _LoginScreenState extends State<LoginScreen> {
       resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Container(
-          padding: MediaQuery.of(context).size.width > webScreenSize
-              ? EdgeInsets.symmetric(
-                  horizontal: MediaQuery.of(context).size.width / 3)
-              : const EdgeInsets.symmetric(horizontal: 32),
+          padding: const EdgeInsets.symmetric(horizontal: 32),
           width: double.infinity,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -76,10 +96,42 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               SvgPicture.asset(
                 "assets/SOCIAL-i.svg",
-                height: 64,
+                height: 60,
+              ),
+              const SizedBox(height: 30),
+              //circular widget to accept and show profile pic
+              Stack(
+                children: [
+                  _image != null
+                      ? CircleAvatar(
+                          radius: 60,
+                          backgroundImage: MemoryImage(_image!),
+                        )
+                      : const CircleAvatar(
+                          radius: 60,
+                          backgroundImage: NetworkImage(
+                              'https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=400&q=60'),
+                        ),
+                  Positioned(
+                    bottom: -10,
+                    left: 70,
+                    child: IconButton(
+                      onPressed: selectImage,
+                      icon: const Icon(Icons.add_a_photo),
+                    ),
+                  ),
+                ],
               ),
               const SizedBox(
-                height: 64,
+                height: 24,
+              ),
+              TextFieldInput(
+                hintText: 'Enter your username',
+                textInputType: TextInputType.text,
+                textEditingController: _usernameController,
+              ),
+              const SizedBox(
+                height: 24,
               ),
               TextFieldInput(
                 hintText: 'Enter your email',
@@ -98,11 +150,19 @@ class _LoginScreenState extends State<LoginScreen> {
               const SizedBox(
                 height: 24,
               ),
+              TextFieldInput(
+                hintText: 'Enter your bio',
+                textInputType: TextInputType.text,
+                textEditingController: _bioController,
+              ),
+              const SizedBox(
+                height: 24,
+              ),
               InkWell(
                 child: Container(
                   child: !_isLoading
                       ? const Text(
-                          'Log in',
+                          'Sign up',
                         )
                       : const CircularProgressIndicator(
                           color: primaryColor,
@@ -117,7 +177,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     color: blueColor,
                   ),
                 ),
-                onTap: loginUser,
+                onTap: signUpUser,
               ),
               const SizedBox(
                 height: 12,
@@ -131,19 +191,19 @@ class _LoginScreenState extends State<LoginScreen> {
                 children: [
                   Container(
                     child: const Text(
-                      'Dont have an account?',
+                      'Already have an account?',
                     ),
                     padding: const EdgeInsets.symmetric(vertical: 8),
                   ),
                   GestureDetector(
                     onTap: () => Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => const SignupScreen(),
+                        builder: (context) => const LoginScreen(),
                       ),
                     ),
                     child: Container(
                       child: const Text(
-                        ' Signup.',
+                        ' Login.',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
