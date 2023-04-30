@@ -1,4 +1,5 @@
-import 'package:flutter/foundation.dart';
+import 'dart:typed_data';
+
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -8,10 +9,10 @@ import 'package:social_i/utils/colors.dart';
 import 'package:social_i/utils/utils.dart';
 
 class AddPostScreen extends StatefulWidget {
-  const AddPostScreen({Key? key}) : super(key: key);
+  const AddPostScreen({super.key});
 
   @override
-  _AddPostScreenState createState() => _AddPostScreenState();
+  State<AddPostScreen> createState() => _AddPostScreenState();
 }
 
 class _AddPostScreenState extends State<AddPostScreen> {
@@ -30,7 +31,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
                 padding: const EdgeInsets.all(20),
                 child: const Text('Take a photo'),
                 onPressed: () async {
-                  Navigator.of(context).pop();
+                  Navigator.pop(context);
                   Uint8List file = await pickImage(ImageSource.camera);
                   setState(() {
                     _file = file;
@@ -50,7 +51,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
               padding: const EdgeInsets.all(20),
               child: const Text("Cancel"),
               onPressed: () {
-                Navigator.of(context).pop();
+                Navigator.pop(context);
               },
             )
           ],
@@ -77,8 +78,10 @@ class _AddPostScreenState extends State<AddPostScreen> {
         setState(() {
           isLoading = false;
         });
-
-        showSnackBar(context, 'Posted!');
+        showSnackBar(
+          context,
+          'Posted!',
+        );
         clearImage();
       } else {
         showSnackBar(context, res);

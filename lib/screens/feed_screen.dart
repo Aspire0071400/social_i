@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:social_i/utils/colors.dart';
-import 'package:social_i/utils/diamensions.dart';
+import 'package:social_i/utils/global_variable.dart';
 import 'package:social_i/widgets/post_card.dart';
 
 class FeedScreen extends StatefulWidget {

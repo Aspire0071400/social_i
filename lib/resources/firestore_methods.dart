@@ -1,4 +1,4 @@
-import 'package:flutter/foundation.dart';
+import 'dart:typed_data';
 import 'package:social_i/models/post.dart';
 import 'package:social_i/resources/storage_methods.dart';
 import 'package:uuid/uuid.dart';

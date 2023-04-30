@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:social_i/models/user.dart';
 import 'package:social_i/resources/auth_methods.dart';
 

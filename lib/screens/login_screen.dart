@@ -6,15 +6,15 @@ import 'package:social_i/responsive/responsive_layout_screen.dart';
 import 'package:social_i/responsive/web_screen_layout.dart';
 import 'package:social_i/screens/signup_screen.dart';
 import 'package:social_i/utils/colors.dart';
-import 'package:social_i/utils/diamensions.dart';
+import 'package:social_i/utils/global_variable.dart';
 import 'package:social_i/utils/utils.dart';
 import 'package:social_i/widgets/text_field_input.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+  const LoginScreen({Key? key}) : super(key: key);
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  _LoginScreenState createState() => _LoginScreenState();
 }
 
 class _LoginScreenState extends State<LoginScreen> {
@@ -99,8 +99,14 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 24,
               ),
               InkWell(
-                onTap: loginUser,
                 child: Container(
+                  child: !_isLoading
+                      ? const Text(
+                          'Log in',
+                        )
+                      : const CircularProgressIndicator(
+                          color: primaryColor,
+                        ),
                   width: double.infinity,
                   alignment: Alignment.center,
                   padding: const EdgeInsets.symmetric(vertical: 12),
@@ -110,14 +116,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     color: blueColor,
                   ),
-                  child: !_isLoading
-                      ? const Text(
-                          'Log in',
-                        )
-                      : const CircularProgressIndicator(
-                          color: primaryColor,
-                        ),
                 ),
+                onTap: loginUser,
               ),
               const SizedBox(
                 height: 12,
@@ -130,10 +130,10 @@ class _LoginScreenState extends State<LoginScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    padding: const EdgeInsets.symmetric(vertical: 8),
                     child: const Text(
                       'Dont have an account?',
                     ),
+                    padding: const EdgeInsets.symmetric(vertical: 8),
                   ),
                   GestureDetector(
                     onTap: () => Navigator.of(context).push(
@@ -142,13 +142,13 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                     child: Container(
-                      padding: const EdgeInsets.symmetric(vertical: 8),
                       child: const Text(
                         ' Signup.',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
                       ),
+                      padding: const EdgeInsets.symmetric(vertical: 8),
                     ),
                   ),
                 ],

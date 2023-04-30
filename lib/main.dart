@@ -8,7 +8,6 @@ import 'package:social_i/responsive/web_screen_layout.dart';
 import 'package:social_i/screens/login_screen.dart';
 import 'package:social_i/utils/colors.dart';
 import 'package:provider/provider.dart';
-
 import 'providers/user_provider.dart';
 
 void main() async {
