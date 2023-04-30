@@ -26,8 +26,7 @@ class _FeedScreenState extends State<FeedScreen> {
               backgroundColor: mobileBackgroundColor,
               centerTitle: false,
               title: SvgPicture.asset(
-                'assets/ic_instagram.svg',
-                color: primaryColor,
+                "assets/SOCIAL-i.svg",
                 height: 32,
               ),
               actions: [

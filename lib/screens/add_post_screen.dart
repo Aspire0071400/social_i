@@ -30,7 +30,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
                 padding: const EdgeInsets.all(20),
                 child: const Text('Take a photo'),
                 onPressed: () async {
-                  Navigator.pop(context);
+                  Navigator.of(context).pop();
                   Uint8List file = await pickImage(ImageSource.camera);
                   setState(() {
                     _file = file;
@@ -50,7 +50,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
               padding: const EdgeInsets.all(20),
               child: const Text("Cancel"),
               onPressed: () {
-                Navigator.pop(context);
+                Navigator.of(context).pop();
               },
             )
           ],
@@ -77,10 +77,8 @@ class _AddPostScreenState extends State<AddPostScreen> {
         setState(() {
           isLoading = false;
         });
-        showSnackBar(
-          context,
-          'Posted!',
-        );
+
+        showSnackBar(context, 'Posted!');
         clearImage();
       } else {
         showSnackBar(context, res);
