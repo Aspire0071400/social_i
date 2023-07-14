@@ -15,7 +15,7 @@ class CommentCard extends StatelessWidget {
             backgroundImage: NetworkImage(
               snap.data()['profilePic'],
             ),
-            radius: 18,
+            radius: 25,
           ),
           Expanded(
             child: Padding(

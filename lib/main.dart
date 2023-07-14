@@ -45,6 +45,7 @@ class MyApp extends StatelessWidget {
         title: 'Social_i',
         theme: ThemeData.dark().copyWith(
           scaffoldBackgroundColor: mobileBackgroundColor,
+          useMaterial3: true,
         ),
         home: StreamBuilder(
           stream: FirebaseAuth.instance.authStateChanges(),

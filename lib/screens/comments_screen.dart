@@ -55,7 +55,7 @@ class _CommentsScreenState extends State<CommentsScreen> {
         title: const Text(
           'Comments',
         ),
-        centerTitle: false,
+        centerTitle: true,
       ),
       body: StreamBuilder(
         stream: FirebaseFirestore.instance

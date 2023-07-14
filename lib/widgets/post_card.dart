@@ -74,7 +74,7 @@ class _PostCardState extends State<PostCard> {
         color: mobileBackgroundColor,
       ),
       padding: const EdgeInsets.symmetric(
-        vertical: 10,
+        vertical: 20,
       ),
       child: Column(
         children: [
@@ -87,7 +87,7 @@ class _PostCardState extends State<PostCard> {
             child: Row(
               children: <Widget>[
                 CircleAvatar(
-                  radius: 16,
+                  radius: 18,
                   backgroundImage: NetworkImage(
                     widget.snap['profImage'].toString(),
                   ),
