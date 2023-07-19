@@ -47,7 +47,7 @@ class _WebScreenLayoutState extends State<WebScreenLayout> {
         backgroundColor: mobileBackgroundColor,
         centerTitle: false,
         title: SvgPicture.asset(
-          'assets/SOCIAL-i.png',
+          'assets/SOCIAL-i.svg',
           height: 32,
         ),
         actions: [

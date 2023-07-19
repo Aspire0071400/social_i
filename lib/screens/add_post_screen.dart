@@ -1,5 +1,4 @@
 import 'dart:typed_data';
-
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -7,6 +6,7 @@ import 'package:social_i/providers/user_provider.dart';
 import 'package:social_i/resources/firestore_methods.dart';
 import 'package:social_i/utils/colors.dart';
 import 'package:social_i/utils/utils.dart';
+
 
 class AddPostScreen extends StatefulWidget {
   const AddPostScreen({super.key});
