@@ -1,6 +1,8 @@
 # social_i
 
-A new Flutter project.
+Social-I is a Flutter application where users can interact with other users by posting their memories and moments for which they must register on the app along with providing some details like email id, name, username, bio and a profile photo, which is used to make a user account.
+
+
 
 ## Getting Started
 
