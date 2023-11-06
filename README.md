@@ -17,15 +17,17 @@ Features:
 
 ScreenShots:
 
-![1690232653965](https://github.com/Aspire0071400/social_i/assets/81578014/7c36eb1a-ca86-4bb4-930b-4e164396de46)
-
-![1690232635246](https://github.com/Aspire0071400/social_i/assets/81578014/4234d358-51e1-4a22-bed1-a5d406166752)
-
-![1690232668033](https://github.com/Aspire0071400/social_i/assets/81578014/a4ba1472-9399-49d3-b8e9-9fa1f2ea1a93)
-
-![1](https://github.com/Aspire0071400/social_i/assets/81578014/c97ce5c2-aea8-4334-9c9a-137f6e49d6b9)
-
-![2](https://github.com/Aspire0071400/social_i/assets/81578014/cf646861-573c-40e1-a316-eafe5b250ac7)
+<img src="https://github.com/Aspire0071400/social_i/assets/81578014/7c36eb1a-ca86-4bb4-930b-4e164396de46" width="200" >
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://github.com/Aspire0071400/social_i/assets/81578014/4234d358-51e1-4a22-bed1-a5d406166752" width="200" >
+<br>
+<img src="https://github.com/Aspire0071400/social_i/assets/81578014/a4ba1472-9399-49d3-b8e9-9fa1f2ea1a93" width="200" >
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://github.com/Aspire0071400/social_i/assets/81578014/c97ce5c2-aea8-4334-9c9a-137f6e49d6b9" width="200" >
+<br>
+<img src="https://github.com/Aspire0071400/social_i/assets/81578014/cf646861-573c-40e1-a316-eafe5b250ac7" width="200" >
+<br>
+<br>
 
 
 Installation:
