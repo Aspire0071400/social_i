@@ -15,7 +15,7 @@ Features:
   +  EVERYTHING REAL TIME
   +  Sign Out
 
-ScreenShots:
+<h1>ScreenShots:</h1>
 
 <img src="https://github.com/Aspire0071400/social_i/assets/81578014/7c36eb1a-ca86-4bb4-930b-4e164396de46" width="200" >
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -30,7 +30,7 @@ ScreenShots:
 <br>
 
 
-Installation:
+<h1>Installation:</h1>
 
 After cloning this repository, migrate to source folder. Then, follow the following steps:
 
@@ -53,15 +53,5 @@ Server: Firebase Auth, Firebase Storage, Firebase Firestore
 
 Client: Flutter, Provider
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<h1>Feedback</h1>
+If you have any feedback, please reach out to me at <a href="mailto:varunvats.kd2@gmail.com">varunvats.kd2@gmail.com</a>
